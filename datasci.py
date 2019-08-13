@@ -38,16 +38,8 @@ def shift_line(st,n):
 
 
 
-def check_caesar():
-    base = strip_punctuation(train['text'][0]).lower()
-    caesar = False
+def check_caesar(base):
     for shift in range(26):
-        new = shift_line(base,shift+1)
-        for line in test['ciphertext']:
-            test_base = strip_punctuation(line).lower()
-            if test_base == new:
-                print(shift)
-                caesar = True
-                break
-        if not caesar:
-            print("Not caesar")
+        testline = shift_line(base, shift)
+        print(testline)
+check_caesar(test['ciphertext'][0])
